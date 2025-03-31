@@ -5,22 +5,17 @@ public class Order {
     private List<String> items;
     private double totalPrice;
 
-    private String customerName;
-    private String customerAddress;
-    private String customerEmail;
+    private CustomerInfo customerInfo;
 
     private String paymentMethod;
     private boolean paymentStatus;
 
     public Order(String orderId, List<String> items, double totalPrice,
-                 String customerName, String customerAddress, String customerEmail,
-                 String paymentMethod, boolean paymentStatus) {
+                CustomerInfo customerInfo, String paymentMethod, boolean paymentStatus) {
         this.orderId = orderId;
         this.items = items;
         this.totalPrice = totalPrice;
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerEmail = customerEmail;
+        this.customerInfo = customerInfo;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
     }
@@ -29,14 +24,8 @@ public class Order {
         System.out.println("Order ID: " + orderId);
         System.out.println("Items: " + items);
         System.out.println("Total Price: $" + totalPrice);
-        printCustomerInfo();
+        customerInfo.printCustomerInfo();
         processPayment();
-    }
-
-    public void printCustomerInfo() {
-        System.out.println("Customer: " + customerName);
-        System.out.println("Address: " + customerAddress);
-        System.out.println("Email: " + customerEmail);
     }
 
     public void processPayment() {
